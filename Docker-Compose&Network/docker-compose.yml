@@ -1,0 +1,36 @@
+services:
+  #둘 간에 통신은 내부 네트워크 판정이므로 포트포워딩 필요 없음
+  server:
+    image: node_test
+    container_name: server
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: [ "/bin/bash", "-c", "npm i && node Server/Server.js" ]
+    volumes:
+      - /home/seoksee/home/docker_Compose:/workspace/docker_Compose
+    networks:
+      # 아래서 생성한 네트워크 이름
+      my-networks:
+        ipv4_address: 192.168.0.2
+    
+  client:
+    image: node_test
+    container_name: client
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: [ "/bin/bash", "-c", "npm i && node Client/Client.js" ]
+    volumes:
+      - /home/seoksee/home/docker_Compose:/workspace/docker_Compose
+    networks:
+      # 아래서 생성한 네트워크 이름
+      my-networks:
+        ipv4_address: 192.168.0.3
+
+networks:
+  # 네트워크 이름
+  my-networks:
+    ipam:
+      config:
+        - subnet: 192.168.0.0/16
