@@ -1,5 +1,5 @@
 # My-CS-Study
-CS(Computer Science) 기술 스텍 스터디 리포지토리
+CS(Computer Science) 기술 스택 스터디 리포지토리
 
 
 ## Study 목록
