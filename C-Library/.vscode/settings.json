@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "libcul.h": "c",
+        "stdio.h": "c"
+    }
+}

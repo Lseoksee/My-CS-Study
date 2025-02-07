@@ -1,0 +1,25 @@
+{
+    "tasks": [
+        {
+            "type": "process",
+            "label": "GCC/G++ 빌드",
+            "command": "gcc",
+            // 컴파일 옵션
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+        },
+    ],
+    "version": "2.0.0"
+}
